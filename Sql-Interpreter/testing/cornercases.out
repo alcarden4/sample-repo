@@ -1,0 +1,44 @@
+DB61B System.  Version 3.0
+Loaded students.db
+Loaded enrolled.db
+Loaded schedule.db
+Search results:
+  Shana B+ 105
+  Jonathan B+ 103
+  Thomas A- 104
+  Thomas B+ 104
+  Valerie B+ 102
+  Valerie A- 102
+  Jason B 101
+  Valerie A 102
+  Shana A 105
+  Jason B+ 101
+  Yangfan A 106
+  Jason A- 101
+  Yangfan B 106
+Error: SID is ambiguous
+Search results:
+  Jonathan 21105
+  Jason 21105
+  Valerie 21105
+  Shana 21105
+  Yangfan 21105
+  Thomas 21105
+  Contents of students:
+  Error: This table has no rows to select
+  Loaded students.db
+  Search results:
+  Contents of dups:
+  102 B+
+  103 B+
+  104 B+
+  105 B+
+  101 B
+  101 A-
+  102 A-
+  104 A-
+  101 B+
+  102 A
+  106 B
+  105 A
+  106 A

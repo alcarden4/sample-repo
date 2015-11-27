@@ -1,0 +1,23 @@
+load students;
+load enrolled;
+load schedule;
+/* Tables have the same column name. */
+select Firstname, Grade, students.SID from students, enrolled 
+where students.SID = enrolled.SID;
+/* Tables have same column name. */
+select SID from students, enrolled;
+/* Select from tables of two different sizes. */
+select Firstname, CCN from students, enrolled where CCN = '21105';
+/* Create a file with same name as existing. (overrides) */
+create table students (Name, Height, Grade);
+/* Print this table */
+print students;
+/* Select from empty table. */
+select Name from students;
+/* Retrieve old table. */
+load students;
+/* Select statement that leads to empty table. */
+select SID, CCN from students, schedule where CCN = '1';
+/* Create duplicate tables */ 
+create table dups as select enrolled.SID as e, Grade as g from enrolled, 
+students where enrolled.SID = students.SID;
