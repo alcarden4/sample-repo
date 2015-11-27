@@ -1,0 +1,141 @@
+48
+            AD --- --- ---
+
+  JH        6D  QC  4H  QD
+ ### ---  
+> rt 2
+            AD --- --- ---
+
+  AH        6D  QC  4H  QD
+ ### ---   ---  JH --- ---
+> undo
+            AD --- --- ---
+
+  JH        6D  QC  4H  QD
+ ### ---  
+> rt 2
+            AD --- --- ---
+
+  AH        6D  QC  4H  QD
+ ### ---   ---  JH --- ---
+> rf
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ### ---   ---  JH --- ---
+> u
+            AD --- --- ---
+
+  AH        6D  QC  4H  QD
+ ### ---   ---  JH --- ---
+> rf
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ### ---   ---  JH --- ---
+> c
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  8C   ---  JH --- ---
+> c
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  3D   ---  JH --- ---
+> c
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  9D   ---  JH --- ---
+> c
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  4S   ---  JH --- ---
+> c
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  5C   ---  JH --- ---
+> wt 1
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  7H    5C  JH --- ---
+> u
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  5C   ---  JH --- ---
+> wt 1
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  7H    5C  JH --- ---
+> c
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  5D    5C  JH --- ---
+> c
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ### 10S    5C  JH --- ---
+> wt 2
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  AS    5C  JH --- ---
+           --- 10S --- ---
+> wf
+            AD  AH  AS ---
+
+  6H        6D  QC  4H  QD
+ ###  2H    5C  JH --- ---
+           --- 10S --- ---
+> u
+            AD  AH --- ---
+
+  6H        6D  QC  4H  QD
+ ###  AS    5C  JH --- ---
+           --- 10S --- ---
+> wf
+            AD  AH  AS ---
+
+  6H        6D  QC  4H  QD
+ ###  2H    5C  JH --- ---
+           --- 10S --- ---
+> c
+            AD  AH  AS ---
+
+  6H        6D  QC  4H  QD
+ ### 10C    5C  JH --- ---
+           --- 10S --- ---
+> c
+            AD  AH  AS ---
+
+  6H        6D  QC  4H  QD
+ ###  JS    5C  JH --- ---
+           --- 10S --- ---
+> wt 4
+            AD  AH  AS ---
+
+  6H        6D  QC  4H  QD
+ ###  5S    5C  JH ---  JS
+           --- 10S --- ---
+> u
+            AD  AH  AS ---
+
+  6H        6D  QC  4H  QD
+ ###  JS    5C  JH --- ---
+           --- 10S --- ---
+> wt 4
+            AD  AH  AS ---
+
+  6H        6D  QC  4H  QD
+ ###  5S    5C  JH ---  JS
+           --- 10S --- ---
+> q
+Another game? [yn] n
