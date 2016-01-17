@@ -1,0 +1,282 @@
+#Comprehensive test covering all of the gitlet commands for our 
+# the tiny stupid version-control system.
+
+# Test init
+> init
+<<<
+E .gitlet
+
+# Test add
++ hello.txt hello.txt
++ meow.txt meow.txt
+> add hello.txt
+<<<
+> add meow.txt
+<<<
+> add nothere.txt
+File does not exist.
+<<<
+
+# Test commitCommand
+> commit "meow hello"
+<<<
+> commit ""
+Please enter a commit message.
+<<<
+
+# Test rm
++ notwug.txt notwug.txt
++ wug.txt wug.txt
+> rm notwug.txt
+No reason to remove the file
+<<<
+> add notwug.txt
+<<<
+> rm notwug.txt
+<<<
+
+# Test Log
+D HEADER "Commit [a-f0-9]+"
+D DATE "\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+> log
+===
+${HEADER}
+${DATE}
+meow hello
+
+===
+${HEADER}
+${DATE}
+initial commit
+
+<<<*
+> add meow.txt
+<<<
+> commit "just meow"
+No changes added to the commit.
+<<<
+D HEADER "Commit [a-f0-9]+"
+D DATE "\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+> log
+===
+${HEADER}
+${DATE}
+meow hello
+
+===
+${HEADER}
+${DATE}
+initial commit
+
+<<<*
+
+# Test global-log
+# Standard commands and definitions
+# A status log header RE.  Captures the commit id in its sole group.
+D DATE "\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+D COMMIT_HEAD "Commit ([a-f0-9]+)[ \t]*\n${DATE}"
+# A full log entry.  Captures the entry. Assume logs messages don't contain
+# ===
+D COMMIT_LOG "(===[ ]*\nCommit [a-f0-9]+[ ]*\n${DATE}[ ]*\n(?:.|\n)*?(?=\Z|\n===))"
+# An arbitrary line of text (works even with ?s)
+D ARBLINE "[^\n]*(?=\n|\Z)"
+# Zero or more arbitrary full lines of text.
+D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
++ kitten.txt wug.txt
+> add kitten.txt
+<<<
+> commit "Add kitten"
+<<<
+> log
+${COMMIT_LOG}
+${COMMIT_LOG}
+${COMMIT_LOG}
+<<<*
+D L1 "${1}"
+D L2 "${2}"
+D L3 "${3}"
+> global-log
+${ARBLINES}${L1}?${ARBLINES}
+<<<*
+> global-log
+${ARBLINES}${L2}?${ARBLINES}
+<<<*
+> global-log
+${ARBLINES}${L3}${ARBLINES}
+<<<*
+
+# Test Find
+# Each ${HEADER} captures its commit UID.
+D UID "[a-f0-9]+"
+D HEADER "Commit (${UID})"
+D DATE "\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+> log
+===
+${HEADER}
+${DATE}
+Add kitten
+
+===
+${HEADER}
+${DATE}
+meow hello
+
+===
+${HEADER}
+${DATE}
+initial commit
+
+<<<*
+# UID of add kitten
+D UID1 "${1}"
+# UID of meow hello
+D UID2 "${2}"
+> find "Add kitten"
+${UID1}
+<<<
+
+# Test status
++ cat.txt meow.txt
+> add cat.txt
+<<<
+D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
+> status
+=== Branches ===
+\*master
+
+=== Staged Files ===
+cat.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+
+<<<*
+
+# Test checkout
++ hello.txt wug.txt
+> add hello.txt
+<<<
+> commit "changed hello to wug"
+<<<
++ hello.txt notwug.txt
+> checkout -- hello.txt
+<<<
+= hello.txt wug.txt
+
+# Test branch
+> branch master
+A branch with that name already exists.
+<<<
+> branch kitty
+<<<
+D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
+> status
+=== Branches ===
+\kitty
+\*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+${ARBLINES}
+<<<*
+
+# Test rmBranch
+> rm-branch kitty
+<<<
+D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
+> status
+=== Branches ===
+\*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+${ARBLINES}
+<<<*
+
+# Test reset
+# Each ${HEADER} captures its commit UID.
+D UID "[a-f0-9]+"
+D HEADER "Commit (${UID})"
+D DATE "\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d:\d\d"
+> log
+===
+${HEADER}
+${DATE}
+changed hello to wug
+
+===
+${HEADER}
+${DATE}
+Add kitten
+
+===
+${HEADER}
+${DATE}
+meow hello
+
+===
+${HEADER}
+${DATE}
+initial commit
+
+<<<*
+# UID of add kitten
+D UID1 "${1}"
+# UID of meow hello
+D UID2 "${2}"
+# UID of initial commit
+D UID3 "${3}"
+> reset ${UID3}
+<<<
+> status
+=== Branches ===
+\*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+${ARBLINES}
+<<<*
+
+# Test Merge
+> merge kitty
+A branch with that name does not exist.
+<<<
+> branch cats
+<<<
++ tabby.txt meow.txt
++ calico.txt hello.txt
+> add tabby.txt
+<<<
+> add calico.txt
+<<<
+> commit "added tabby and calico"
+<<<
+> checkout cats
+<<<
+> add notwug.txt
+<<<
+> merge master
+You have uncommitted changes.
+<<<

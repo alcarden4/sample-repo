@@ -1,0 +1,8 @@
+# Tests a game with both sides automated 
+java -ea loa.Main
+None
+===#1===
+auto white
+auto black
+start
+%bw

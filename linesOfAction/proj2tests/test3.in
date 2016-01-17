@@ -1,0 +1,7 @@
+# Tests a game with both sides automated 
+staff-loa
+None
+===#1===
+auto white
+auto black
+%bw

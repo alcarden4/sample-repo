@@ -1,0 +1,16 @@
+# Run your AI against the staff program. It also has second program playing
+# as black
+staff-loa
+===#1===
+auto white
+manual black
+seed 129384
+start
+%ib...
+%e
+===#2===
+seed 384293
+start
+%mb
+%iw...
+%e

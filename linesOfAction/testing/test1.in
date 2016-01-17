@@ -1,0 +1,14 @@
+# Test that the set command works
+java -ea loa.Main
+None
+===#1===
+dump
+set d3 w
+dump
+set b5 w
+dump
+set c1 w
+dump
+set g4 b
+dump
+quit
