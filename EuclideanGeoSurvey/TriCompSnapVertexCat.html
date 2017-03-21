@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <script src="http://www.h2.dion.ne.jp/~defghi/snapsvg/snap.svg.js"></script>
+
+    <!-- Latest compiled and minified JQuery -->
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Call own JS files -->
+    <script src="ajaxMessagesVertexCategorical.js" type="text/javascript" charset="utf-8"></script>
+    <!--    <script src="./DHTMLX/codebase/dhtmlx.js" type="text/javascript" charset="utf-8"></script> !-->
+    <script src="TriCompExpHandlerVertexCat.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <!--    <link rel="stylesheet" href="./DHTMLX/codebase/dhtmlx.css" type="text/css" charset="utf-8"> !-->
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Triangle Vertex Manipulation Survey</title>
+
+</head>
+<body>
+
+
+<div id="ConsentForm" class="page">
+    <h2>Triangle Vertex Manipulation Survey</h2>
+    <p> Please read the following information carefully before proceeding.</p>
+    <p>
+        <u><b>Why we are doing this research:</b></u> In this project, we aim to study how people understand the
+        manipulation of a triangle's top corner location and angle size when given information about the other
+        two bottom corners. <br>
+        With this data we hope to learn more about the innate geometry intuitions we have and the mechanisms we use to
+        employ them.
+    </p>
+    <p>
+        <u><b>What will you have to do:</b></u> You'll be shown the base of a triangle with its two angles. We will
+        give you information on how these two angles will be changing and you must answer how this affects the top
+        corner from a multiple choice bank.
+    </p>
+    <p>
+        <u><b>Benefits and compensations:</b></u> We do not expect any direct benefits to you from your taking part in
+        this research. <br>
+        You will receive a compensation in the amount indicated in Amazon Mechanical Turk task description upon
+        completion of the survey.
+    <p>
+        <u><b>Potential risks:</b></u> There are no potential risks to this study.<br>
+        You are free to leave at any time without penalty or loss of benefits to which you are otherwise entitled.
+    </p>
+    <p>
+        <u><b>Privacy:</b></u> Your responses will be kept anonymous and stored indefinitely on our password-protected
+        server. <br>
+        The study does not collect any direct or indirect individual identifiers throughout, with the exception of the
+        Amazon Mechanical Turk ID. <br>
+        Please mark your Amazon profile as private. <br>
+        Your Amazon Mechanical Turk ID is kept on a different file from the data-set and will be deleted upon payment.
+    </p>
+    <p>
+        <u><b>Duration:</b></u> Approximately 45-60 minutes. There is no time limit for completion except for the mTurk
+        HIT limit.
+    </p>
+    <p>
+        <u><b>To contact the researcher:</b></u> If you have questions or concerns about this research, please contact
+        <br>
+        Yuval Hart, Pierce Hall Room 408, 29 Oxford St, Cambridge, MA 02138, uvhart@seas.harvard.edu. <br>
+        This research has been reviewed by the Committee on the Use of Human Subjects in Research at Harvard University.
+        <br>
+        They can be reached at 617-496-2847, 1414 Massachusetts Avenue, Second Floor, Cambridge, MA 02138, <br>
+        or cuhs@fas.harvard.edu, if your questions, concerns, or complaints are not being answered by the research
+        team, if you cannot reach the research team, <br>
+        if you want to talk to someone besides the research team, or if you have questions about your rights as a
+        research participant.
+    </p>
+    <p>Please print or save a copy of this page for your records.</p>
+    <p>
+        By answering YES in the box below you confirm that you have read and understood the above and agree to take
+        part in this research. <br>
+        Your participation is voluntary and you are free to leave the experiment at any time by simply closing the
+        web browser.
+    </p>
+
+    <p>
+    <ol dir="ltr">
+        <li><input type="radio" name="yesno2Experiment" value='yes' dir="ltr">Yes, I understand the above and agree to
+            take part in the research<br></li>
+        <li><input type="radio" name="yesno2Experiment" value='no' dir="ltr">No, I prefer not to participate in the
+            research<br></li>
+    </ol>
+    </p>
+    <svg id="ConsentInstructions" width="1000" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id='Button2' cursor="pointer" onmouseup="onNextConsentForm()">
+            <rect x="600" y="20" rx="5" ry="5" width="110" height="30" stroke="black" fill="lightblue" stroke-width="5"></rect>
+            <text x="615" y="40" text-align=center> Continue</text>
+        </g>
+    </svg>
+</div>
+
+
+
+<div id="user_data" class="page" >
+
+    <h2>Please answer the following questions: </h2>
+
+    <table>
+        <tr>
+            <td><p>Age: </p></td>
+            <td><input type="text" id="age" size="25" /></td>
+        </tr>
+
+        <tr>
+            <td><p>Years of education</p></td>
+            <td><input type="text" id="education" size="25" /></td>
+        </tr>
+
+        <tr>
+            <td><p>Gender:</p></td>
+            <td> <select id="gender">
+                <option value=""></option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><p>Are you right or left handed:</p></td>
+            <td> <select id="RightLeft">
+                <option value=""></option>
+                <option value="Right">Right Handed</option>
+                <option value="Left">Left Handed</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+
+    <svg id="NextPageInstructions" width="1000" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id='Button1' cursor="pointer" onmouseup="onNextuserdata()">
+            <rect x="600" y="20" rx="5" ry="5" width="110" height="30" stroke="black" fill="lightblue" stroke-width="5"></rect>
+            <text x="615" y="40" text-align=center> Continue</text>
+        </g>
+    </svg>
+
+</div>
+
+<div id="initial_instructions" class="page">
+    <h2>Experiment Instructions: </h2>
+
+    <p>
+        Welcome! <br>
+        This study examines how people judge shape changes in triangles. Specifically, how might changes to the
+        distance between the bottom two corners of a triangle or to their angle sizes affect the third corner?<br>
+
+        <h2> Procedure: </h2>
+        First, read the description indicating a change to the bottom two corners of the triangle that is displayed on the screen.
+        Then, select the multiple choice response that accurately reflects what happens to the third corner as a result.
+        Please try to be accurate as possible and answer the questions to the best of your ability.
+        When you're done with each question, please press the "Continue” button to move to the next question.
+        <br>
+        The experiment takes between 45-60 minutes. At the end of the experiment you'll be provided with a user
+        ID code that you should enter back in mTURK. <br>
+    </p>
+    <p style="color: red">
+        Please don't press on the refresh or backwards buttons, since the experiment will begin anew, and your
+        results will not be saved.
+    </p>
+    <p>
+        Press "Start" when you're ready to go.
+    </p>
+    <p>
+        Good luck!
+    </p>
+
+    <svg id="NextPageInstructions" width="1000" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id='Button1' cursor="pointer" onmouseup="onNext()">
+            <rect x="800" y="20" rx="5" ry="5" width="80" height="30" stroke="black" fill="lightblue" stroke-width="5"></rect>
+            <text x="820" y="40" text-align=center> Start</text>
+        </g>
+    </svg>
+</div>
+
+
+<div id="TriangleTraining" class="page">
+    <h2>Explanation Page</h2>
+
+    <p>
+        This page illustrates what we mean by increasing/decreasing the distance between the bottom two corners of the
+        triangle  or increasing/decreasing the angle size of the bottom two corners. <br>
+        Please press and hold each button on the right to view how the distances or the angle sizes change given each
+        type of verbal instruction. Each change is made with reference to the initial triangle shown, so you can
+        toggle between the change and the original triangle by pressing the button multiple times. You will see a
+        variety of initial triangles from which to imagine a change during the course of the experiment.
+        <br>
+    </p>
+
+    <svg id="IncreaseDistanceButton" width="1000" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id='Button1' cursor="pointer" onmousedown="increaseDist();" onmouseup="originalButton();">
+            <rect  x="800" y="20" rx="5" ry="5" width="160" height="30" stroke="black"
+                  fill="lightblue"
+                  stroke-width="5"></rect>
+            <text x="820" y="40" font-size="13">Increase Distance</text>
+        </g>
+
+    </svg>
+
+    <svg id="DecreaseDistanceButton" width="1000" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id='Button1' cursor="pointer" onmousedown="decreaseDist();" onmouseup="originalButton();">
+            <rect x="800" y="20" rx="5" ry="5" width="160" height="30" stroke="black" fill="lightblue"
+                  stroke-width="5"></rect>
+            <text x="820" y="40" font-size="13">Decrease Distance</text>
+        </g>
+    </svg>
+
+    <svg id="IncreaseAngleButton" width="1000" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id='Button1' cursor="pointer" onmousedown="increaseAngle();" onmouseup="originalButton();">
+            <rect x="800" y="20" rx="5" ry="5" width="160" height="30" stroke="black" fill="lightblue"
+                  stroke-width="5"></rect>
+            <text x="820" y="40" font-size="13">Increase Angle</text>
+        </g>
+    </svg>
+
+    <svg id="DecreaseAngleButton" width="1000" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id='Button1' cursor="pointer" onmousedown="decreaseAngle();" onmouseup="originalButton();">
+            <rect x="800" y="20" rx="5" ry="5" width="160" height="30" stroke="black" fill="lightblue"
+                  stroke-width="5"></rect>
+            <text x="820" y="40" font-size="13">Decrease Angle</text>
+        </g>
+    </svg>
+
+    <svg id="ContinueButton" width="1000" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id='Button1' cursor="pointer" onmouseup="ContinueButton()">
+            <rect x="800" y="20" rx="5" ry="5" width="160" height="30" stroke="black" fill="lightblue"
+                  stroke-width="5"></rect>
+            <text x="820" y="40" font-size="13">Continue</text>
+        </g>
+    </svg>
+    <svg id='triangleTrain'></svg>
+
+
+</div>
+
+
+<div id="TriangleManipulationPages" class="page">
+
+    <p id = "question"></p>
+
+    <p id = "angleRadio" >
+            <input type="radio" name="action" id="bigger" value="bigger" /><label for="bigger">Get Bigger
+        </label><br />
+            <input type="radio" name="action" id="smaller" value="smaller"  /><label for="smaller">Get Smaller
+        </label><br />
+            <input type="radio" name="action" id="same" value="same" /><label for="same">Stay the same
+        size</label><br />
+    </p>
+
+    <p id = "vertexRadio" >
+        <input type="radio" name="action" id="upward" value="upward" /><label for="upward">Move Up
+    </label><br />
+        <input type="radio" name="action" id="downward" value="downward"  /><label for="downward">Move Down
+    </label><br />
+        <input type="radio" name="action" id="stayPlace" value="stayPlace" /><label for="stayPlace">Stay
+        in the same place</label><br />
+
+    </p>
+
+    <svg id='triangle'> </svg>
+
+
+
+</div>
+
+<div id="endComments" class='page'>
+    <p> If you have comments about the flow of the survey or experienced technical problems with the survey,
+        please write them below: </p>
+    <p>
+        <textarea id="endCommentsText" rows="4" cols="100"></textarea>
+    </p>
+    <svg id="EndCommentsButton" width="1000" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id='Button2' cursor="pointer" onmouseup="submit_comments()">
+            <rect x="800" y="20" rx="5" ry="5" width="110" height="30" stroke="black" fill="lightblue" stroke-width="5"></rect>
+            <text x="815" y="40" text-align=center> Continue</text>
+        </g>
+    </svg>
+</div>
+
+<div id="ThankYou" class="page">
+    <svg id="FinalMessage" width="1000" height="400" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <text id="allDone" x="0" y="30" font-size="35"> All Done! </text>;
+        <text id="thanks" x="0" y="80" font-size="25"> text </text>;
+        <text id="userID" x="0" y="130" font-size="25"> text </text>;
+        <text x="0" y="180" font-size="25"> To receive payment for participating, click "Accept HIT" in the
+            Mechanical Turk window, </text>;
+        <text x="0" y="230" font-size="25"> enter this validation code, then click "Submit". Many thanks! </text>;
+    </svg>
+</div>
+
+<!--<script type="text/javascript" language="javascript">
+    function disableBackButton() {
+        window.history.forward()
+    }
+    disableBackButton();
+    window.onload = disableBackButton();
+    window.onpageshow = function (evt) { if (evt.persisted) disableBackButton() }
+    window.onunload = function () { void (0) }
+</script>
+!-->
+
+</body>
+</html>
